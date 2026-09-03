@@ -3,6 +3,10 @@ const express = require("express");
 const cors = require("cors");
 const rateLimit = require("express-rate-limit");
 const connectDB = require("./src/config/db");
+const projectRoutes = require("./src/routes/projectRoutes");
+const authRoutes = require("./src/routes/authRoutes");
+const messageRoutes = require("./src/routes/messageRoutes");
+const errorHandler = require("./src/middlewares/errorHandler");
 
 const PORT = process.env.PORT || 3000;
 const CLIENT_ORIGIN = process.env.CLIENT_ORIGIN || "http://localhost:5173";
@@ -26,10 +30,12 @@ app.get("/api/health", (req, res) => {
   res.json({ status: "ok", timestamp: new Date().toISOString() });
 });
 
-// TODO: pasang routes setelah dibuat (Milestone 3)
-// app.use("/api/projects", require("./src/routes/projectRoutes"));
-// app.use("/api/admin", require("./src/routes/authRoutes"));
-// app.use("/api/contact", require("./src/routes/messageRoutes"));
+app.use("/api/projects", projectRoutes);
+app.use("/api/admin/projects", projectRoutes.adminRouter);
+app.use("/api/admin", authRoutes);
+app.use("/api/contact", messageRoutes);
+
+app.use(errorHandler); 
 
 async function startServer() {
   await connectDB(); // verifikasi koneksi MongoDB dulu sebelum server listen
