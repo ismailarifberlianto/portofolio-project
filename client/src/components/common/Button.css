@@ -1,0 +1,38 @@
+.clay-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border: none;
+  border-radius: var(--clay-radius-lg);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.clay-btn:active {
+  transform: translateY(2px);
+}
+
+.clay-btn--primary {
+  background: var(--clay-accent);
+  color: var(--clay-accent-contrast);
+  box-shadow: var(--clay-shadow-raised);
+}
+
+.clay-btn--primary:hover {
+  box-shadow: var(--clay-shadow-raised-hover);
+}
+
+.clay-btn--secondary {
+  background: var(--clay-surface);
+  color: var(--clay-text-h);
+  box-shadow: var(--clay-shadow-raised);
+}
+
+.clay-btn--secondary:hover {
+  box-shadow: var(--clay-shadow-raised-hover);
+}
