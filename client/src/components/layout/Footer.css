@@ -1,0 +1,30 @@
+.footer {
+  border-top: 1px solid var(--clay-border);
+  padding: 32px 24px;
+  margin-top: 64px;
+}
+
+.footer__inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.footer__social {
+  display: flex;
+  gap: 16px;
+}
+
+.footer__social a {
+  color: var(--clay-text);
+  text-decoration: none;
+}
+
+.footer__social a:hover {
+  color: var(--clay-accent);
+}

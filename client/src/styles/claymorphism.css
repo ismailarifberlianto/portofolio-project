@@ -1,0 +1,25 @@
+:root {
+  --clay-bg: #f2ecff;
+  --clay-bg-soft: #e9e1ff;
+  --clay-bg-translucent: rgba(242, 236, 255, 0.85);
+  --clay-surface: #f6f1ff;
+  --clay-text: #5c5470;
+  --clay-text-h: #2e2a3d;
+  --clay-border: #ded3f7;
+  --clay-accent: #a78bfa;
+  --clay-accent-alt: #7dd3c0;
+  --clay-accent-contrast: #2e2a3d;
+
+  --clay-radius-sm: 14px;
+  --clay-radius-lg: 24px;
+
+  --clay-shadow-raised:
+    8px 8px 16px rgba(163, 148, 202, 0.35),
+    -8px -8px 16px rgba(255, 255, 255, 0.7);
+  --clay-shadow-raised-hover:
+    10px 10px 20px rgba(163, 148, 202, 0.4),
+    -10px -10px 20px rgba(255, 255, 255, 0.8);
+  --clay-shadow-inset:
+    inset 4px 4px 8px rgba(163, 148, 202, 0.3),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.6);
+}

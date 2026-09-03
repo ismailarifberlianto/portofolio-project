@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--clay-bg);
+  color: var(--clay-text);
+  font-family: system-ui, "Segoe UI", Roboto, sans-serif;
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section-title {
+  font-size: 28px;
+  color: var(--clay-text-h);
+  margin: 0 0 24px;
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+}
