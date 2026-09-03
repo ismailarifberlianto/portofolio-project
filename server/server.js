@@ -7,6 +7,7 @@ const projectRoutes = require("./src/routes/projectRoutes");
 const authRoutes = require("./src/routes/authRoutes");
 const messageRoutes = require("./src/routes/messageRoutes");
 const errorHandler = require("./src/middlewares/errorHandler");
+const uploadRoutes = require("./src/routes/uploadRoutes");
 
 const PORT = process.env.PORT || 3000;
 const CLIENT_ORIGIN = process.env.CLIENT_ORIGIN || "http://localhost:5173";
@@ -34,6 +35,7 @@ app.use("/api/projects", projectRoutes);
 app.use("/api/admin/projects", projectRoutes.adminRouter);
 app.use("/api/admin", authRoutes);
 app.use("/api/contact", messageRoutes);
+app.use("/api/admin/upload", uploadRoutes);
 
 app.use(errorHandler); 
 
