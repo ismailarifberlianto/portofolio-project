@@ -10,9 +10,9 @@ async function login(req, res, next) {
       return res.status(400).json({ message: "Email dan password wajib diisi" });
     }
 
-    const user = await User.where("email", email).first();
+    const user = await User.makeVisible("passwordHash").where("email", email).first();
 
-    if (!user) {
+    if (!user || !user.passwordHash) {
       return res.status(401).json({ message: "Email atau password salah" });
     }
 
