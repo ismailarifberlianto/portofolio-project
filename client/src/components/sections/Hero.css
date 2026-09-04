@@ -1,0 +1,50 @@
+.hero-section {
+  padding: 96px 0 64px;
+  text-align: center;
+}
+
+.hero-section__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-section__eyebrow {
+  color: var(--clay-accent);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.hero-section__name {
+  font-size: 56px;
+  margin: 0;
+  color: var(--clay-text-h);
+}
+
+.hero-section__role {
+  font-size: 22px;
+  color: var(--clay-text-h);
+  font-weight: 600;
+}
+
+.hero-section__tagline {
+  max-width: 520px;
+  color: var(--clay-text);
+}
+
+.hero-section__cta {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 640px) {
+  .hero-section__name {
+    font-size: 36px;
+  }
+}

@@ -1,0 +1,36 @@
+.projects-section {
+  padding: 48px 0;
+}
+
+.projects-section__filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.filter-chip {
+  border: none;
+  border-radius: 999px;
+  padding: 8px 18px;
+  background: var(--clay-surface);
+  color: var(--clay-text);
+  box-shadow: var(--clay-shadow-raised);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.filter-chip.is-active {
+  background: var(--clay-accent);
+  color: var(--clay-accent-contrast);
+}
+
+.projects-section__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.projects-section__hint {
+  color: var(--clay-text);
+}

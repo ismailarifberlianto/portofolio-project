@@ -1,0 +1,25 @@
+.skills-section {
+  padding: 48px 0;
+}
+
+.skills-section__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.skills-section__group h3 {
+  margin: 0 0 12px;
+  color: var(--clay-text-h);
+  font-size: 18px;
+}
+
+.skills-section__group ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--clay-text);
+}

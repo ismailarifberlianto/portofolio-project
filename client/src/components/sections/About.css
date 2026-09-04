@@ -1,0 +1,10 @@
+.about-section {
+  padding: 48px 0;
+}
+
+.about-section__card {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 17px;
+  line-height: 1.7;
+}
