@@ -1,0 +1,83 @@
+.admin-login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.admin-login__card {
+  width: 100%;
+  max-width: 380px;
+  background: var(--clay-surface);
+  border-radius: var(--clay-radius-lg);
+  box-shadow: var(--clay-shadow-raised);
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.admin-login__card h1 {
+  margin: 0;
+  color: var(--clay-text-h);
+  font-size: 24px;
+  text-align: center;
+}
+
+.admin-login__subtitle {
+  margin: 0 0 8px;
+  color: var(--clay-text);
+  font-size: 14px;
+  text-align: center;
+}
+
+.admin-login__error {
+  background: rgba(220, 38, 38, 0.1);
+  color: #dc2626;
+  padding: 10px 14px;
+  border-radius: var(--clay-radius-sm);
+  font-size: 14px;
+  margin: 0;
+}
+
+.admin-login__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--clay-text-h);
+  font-weight: 600;
+}
+
+.admin-login__field input {
+  border: none;
+  border-radius: var(--clay-radius-sm);
+  padding: 12px 14px;
+  background: var(--clay-bg-soft);
+  box-shadow: var(--clay-shadow-inset);
+  font-size: 15px;
+  color: var(--clay-text-h);
+}
+
+.admin-login__field input:focus {
+  outline: 2px solid var(--clay-accent);
+}
+
+.admin-login__submit {
+  margin-top: 8px;
+  border: none;
+  border-radius: var(--clay-radius-lg);
+  padding: 14px;
+  background: var(--clay-accent);
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: var(--clay-shadow-raised);
+}
+
+.admin-login__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

@@ -1,0 +1,130 @@
+.project-form {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 24px 64px;
+}
+
+.project-form h1 {
+  color: var(--clay-text-h);
+  margin: 0 0 24px;
+}
+
+.project-form__error {
+  background: rgba(220, 38, 38, 0.1);
+  color: #dc2626;
+  padding: 10px 14px;
+  border-radius: var(--clay-radius-sm);
+  margin-bottom: 16px;
+}
+
+.project-form__hint {
+  color: var(--clay-text);
+  font-size: 13px;
+}
+
+.project-form__form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.project-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 640px) {
+  .project-form__row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--clay-text-h);
+}
+
+.project-form__field input,
+.project-form__field select,
+.project-form__field textarea {
+  border: none;
+  border-radius: var(--clay-radius-sm);
+  padding: 12px 14px;
+  background: var(--clay-bg-soft);
+  box-shadow: var(--clay-shadow-inset);
+  font-size: 15px;
+  color: var(--clay-text-h);
+  font-family: inherit;
+}
+
+.project-form__field input:focus,
+.project-form__field select:focus,
+.project-form__field textarea:focus {
+  outline: 2px solid var(--clay-accent);
+}
+
+.project-form__thumb-preview {
+  width: 100%;
+  max-width: 240px;
+  border-radius: var(--clay-radius-sm);
+  box-shadow: var(--clay-shadow-raised);
+  margin-bottom: 8px;
+}
+
+.project-form__gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.project-form__gallery-item {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.project-form__gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--clay-radius-sm);
+  box-shadow: var(--clay-shadow-raised);
+}
+
+.project-form__gallery-item button {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: none;
+  background: #dc2626;
+  color: #fff;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.project-form__submit {
+  border: none;
+  border-radius: var(--clay-radius-lg);
+  padding: 14px;
+  background: var(--clay-accent);
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: var(--clay-shadow-raised);
+}
+
+.project-form__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
