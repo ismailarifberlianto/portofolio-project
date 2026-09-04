@@ -1,0 +1,64 @@
+.contact-section {
+  padding: 48px 0 64px;
+}
+
+.contact-section__card {
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.contact-section__intro {
+  margin: 0 0 20px;
+  color: var(--clay-text);
+  text-align: center;
+}
+
+.contact-section__success {
+  background: rgba(34, 197, 94, 0.12);
+  color: #16a34a;
+  padding: 10px 14px;
+  border-radius: var(--clay-radius-sm);
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.contact-section__error {
+  background: rgba(220, 38, 38, 0.1);
+  color: #dc2626;
+  padding: 10px 14px;
+  border-radius: var(--clay-radius-sm);
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.contact-section__form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contact-section__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--clay-text-h);
+}
+
+.contact-section__field input,
+.contact-section__field textarea {
+  border: none;
+  border-radius: var(--clay-radius-sm);
+  padding: 12px 14px;
+  background: var(--clay-bg-soft);
+  box-shadow: var(--clay-shadow-inset);
+  font-size: 15px;
+  color: var(--clay-text-h);
+  font-family: inherit;
+}
+
+.contact-section__field input:focus,
+.contact-section__field textarea:focus {
+  outline: 2px solid var(--clay-accent);
+}
