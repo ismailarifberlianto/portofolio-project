@@ -40,7 +40,7 @@ app.use("/api/admin/upload", uploadRoutes);
 app.use(errorHandler); 
 
 async function startServer() {
-  await connectDB(); // verifikasi koneksi MongoDB dulu sebelum server listen
+  await connectDB(); // Connection verification
   app.listen(PORT, () => {
     console.log(`Server jalan di http://localhost:${PORT}`);
   });

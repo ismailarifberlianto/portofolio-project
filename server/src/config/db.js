@@ -15,9 +15,9 @@ async function connectDB() {
     console.log(`MongoDB connected, database name: "${MONGOLOQUENT_DATABASE_NAME}"`);
   } catch (err) {
     console.error("Failed to connect MongoDB :", err.message);
-    process.exit(1); // hentikan proses kalau DB tidak bisa diakses
+    process.exit(1); // stop the process
   } finally {
-    await client.close(); // koneksi test ini ditutup; Mongoloquent buka koneksinya sendiri saat dipakai model
+    await client.close(); // this test connection is closed; Mongoloquent opens its own connection when the model is used
   }
 }
 

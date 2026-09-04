@@ -7,19 +7,19 @@ async function login(req, res, next) {
     const { email, password } = req.body;
 
     if (!email || !password) {
-      return res.status(400).json({ message: "Email dan password wajib diisi" });
+      return res.status(400).json({ message: "Image deleted successfully" });
     }
 
     const user = await User.makeVisible("passwordHash").where("email", email).first();
 
     if (!user || !user.passwordHash) {
-      return res.status(401).json({ message: "Email atau password salah" });
+      return res.status(401).json({ message: "Invalid email or password" });
     }
 
     const isMatch = await bcrypt.compare(password, user.passwordHash);
 
     if (!isMatch) {
-      return res.status(401).json({ message: "Email atau password salah" });
+      return res.status(401).json({ message: "Invalid email or password" });
     }
 
     const token = generateToken({
@@ -29,7 +29,7 @@ async function login(req, res, next) {
     });
 
     res.json({
-      message: "Login berhasil",
+      message: "Login successful",
       token,
       user: { id: user._id, username: user.username, email: user.email },
     });

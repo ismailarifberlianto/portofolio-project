@@ -9,7 +9,7 @@ function getImagekit() {
 
   if (!IMAGEKIT_PUBLIC_KEY || !IMAGEKIT_PRIVATE_KEY || !IMAGEKIT_URL_ENDPOINT) {
     const err = new Error(
-      "ImageKit belum dikonfigurasi. Isi IMAGEKIT_PUBLIC_KEY, IMAGEKIT_PRIVATE_KEY, dan IMAGEKIT_URL_ENDPOINT di .env (ambil dari dashboard ImageKit.io > Developer Options)."
+      "ImageKit is not configured yet. Set IMAGEKIT_PUBLIC_KEY, IMAGEKIT_PRIVATE_KEY, and IMAGEKIT_URL_ENDPOINT in .env (get them from the ImageKit.io dashboard > Developer Options)."
     );
     err.statusCode = 500;
     throw err;

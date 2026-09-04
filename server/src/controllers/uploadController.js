@@ -4,7 +4,7 @@ const getImagekit = require("../config/imagekit");
 async function uploadImage(req, res, next) {
   try {
     if (!req.file) {
-      return res.status(400).json({ message: "File gambar wajib diupload" });
+      return res.status(400).json({ message: "Image file is required" });
     }
 
     const imagekit = getImagekit();
@@ -19,7 +19,7 @@ async function uploadImage(req, res, next) {
     });
 
     res.status(201).json({
-      message: "Upload berhasil",
+      message: "Successfully uploaded",
       data: {
         url: result.url,
         fileId: result.fileId,
@@ -38,7 +38,7 @@ async function deleteImage(req, res, next) {
   try {
     const imagekit = getImagekit();
     await imagekit.deleteFile(req.params.fileId);
-    res.json({ message: "Gambar berhasil dihapus" });
+    res.json({ message: "Image deleted successfully" });
   } catch (err) {
     next(err);
   }

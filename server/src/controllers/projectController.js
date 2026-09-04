@@ -1,7 +1,7 @@
 const Project = require("../models/Project");
 const getImagekit = require("../config/imagekit");
 
-// GET /api/projects (public) — filter opsional category solo atau team
+// GET /api/projects (public) — optional category filter: solo or team
 async function getAll(req, res, next) {
   try {
     const { category } = req.query;
@@ -22,7 +22,7 @@ async function getById(req, res, next) {
     const project = await Project.find(req.params.id);
 
     if (!project) {
-      return res.status(404).json({ message: "Projek tidak ditemukan" });
+      return res.status(404).json({ message: "Project not found" });
     }
 
     res.json({ data: project });
@@ -48,7 +48,7 @@ async function create(req, res, next) {
     } = req.body;
 
     if (!title || !description) {
-      return res.status(400).json({ message: "Title dan description wajib diisi" });
+      return res.status(400).json({ message: "Title and description are required" });
     }
 
     const project = await Project.create({
@@ -65,7 +65,7 @@ async function create(req, res, next) {
       createdBy: req.admin.id,
     });
 
-    res.status(201).json({ message: "Projek berhasil dibuat", data: project });
+    res.status(201).json({ message: "Project created successfully", data: project });
   } catch (err) {
     next(err);
   }
@@ -77,7 +77,7 @@ async function update(req, res, next) {
     const existing = await Project.find(req.params.id);
 
     if (!existing) {
-      return res.status(404).json({ message: "Projek tidak ditemukan" });
+      return res.status(404).json({ message: "Project not found" });
     }
 
     if (
@@ -88,13 +88,13 @@ async function update(req, res, next) {
       try {
         await getImagekit().deleteFile(existing.thumbnailFileId);
       } catch (err) {
-        console.error("Gagal hapus thumbnail lama di ImageKit:", err.message);
+        console.error("Failed to delete old thumbnail on ImageKit:", err.message);
       }
     }
 
     const updated = await Project.where("_id", req.params.id).update(req.body);
 
-    res.json({ message: "Projek berhasil diperbarui", data: updated });
+    res.json({ message: "Project updated successfully", data: updated });
   } catch (err) {
     next(err);
   }
@@ -106,7 +106,7 @@ async function remove(req, res, next) {
     const existing = await Project.find(req.params.id);
 
     if (!existing) {
-      return res.status(404).json({ message: "Projek tidak ditemukan" });
+      return res.status(404).json({ message: "Project not found" });
     }
 
     const fileIds = [
@@ -118,13 +118,13 @@ async function remove(req, res, next) {
       try {
         await getImagekit().bulkDeleteFiles(fileIds);
       } catch (err) {
-        console.error("Gagal hapus file terkait di ImageKit:", err.message);
+        console.error("Failed to delete related files on ImageKit:", err.message);
       }
     }
 
     await Project.destroy(req.params.id);
 
-    res.json({ message: "Projek berhasil dihapus" });
+    res.json({ message: "Project removed successfully" });
   } catch (err) {
     next(err);
   }

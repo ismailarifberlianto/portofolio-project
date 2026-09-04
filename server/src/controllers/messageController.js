@@ -17,7 +17,7 @@ async function create(req, res, next) {
     const { name, email, message } = req.body;
 
     if (!name || !email || !message) {
-      return res.status(400).json({ message: "Nama, email, dan pesan wajib diisi" });
+      return res.status(400).json({ message: "Invalid email or password" });
     }
 
     await Message.create({ name, email, message });
@@ -27,13 +27,13 @@ async function create(req, res, next) {
         .sendMail({
           from: process.env.SMTP_FROM || process.env.SMTP_USER,
           to: process.env.ADMIN_NOTIFY_EMAIL,
-          subject: `Pesan baru dari ${name} (Portfolio Contact Form)`,
-          text: `Nama: ${name}\nEmail: ${email}\n\nPesan:\n${message}`,
+          subject: `New message from ${name} (Portfolio Contact Form)`,
+          text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
         })
-        .catch((err) => console.error("Gagal kirim email notifikasi:", err.message));
+        .catch((err) => console.error("Failed to send notification email:", err.message));
     }
 
-    res.status(201).json({ message: "Pesan berhasil dikirim" });
+    res.status(201).json({ message: "Message sent successfully" });
   } catch (err) {
     next(err);
   }

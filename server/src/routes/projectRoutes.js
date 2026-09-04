@@ -15,7 +15,7 @@ router.get("/:id", getById);
 
 module.exports = router;
 
-// Admin (dipasang terpisah di app.js dengan prefix /api/admin/projects)
+// Admin (mounted separately in app.js with the /api/admin/projects prefix)
 module.exports.adminRouter = express.Router()
   .use(authMiddleware)
   .post("/", create)

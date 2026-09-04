@@ -10,7 +10,7 @@ async function seed() {
     { username: "adminmail", email: process.env.SEED_ADMIN_EMAIL || "admin@mail.com", passwordHash }
   );
 
-  console.log("Admin siap:", admin.email);
+  console.log("Admin ready:", admin.email);
   process.exit(0);
 }
 
