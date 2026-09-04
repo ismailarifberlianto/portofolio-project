@@ -13,7 +13,7 @@ function Navbar() {
     <header className="navbar">
       <div className="navbar__inner">
         <Link to="/" className="navbar__brand">
-          astro<span>.dev</span>
+          ismail<span>.dev</span>
         </Link>
         <nav className="navbar__links">
           {NAV_LINKS.map((link) => (

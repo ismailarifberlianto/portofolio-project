@@ -8,10 +8,10 @@ function Hero() {
     <section id="top" className="hero-section">
       <Container className="hero-section__inner">
         <p className="hero-section__eyebrow">Hi, I'm</p>
-        <h1 className="hero-section__name">Astro</h1>
-        <p className="hero-section__role">Full-Stack Web Developer</p>
+        <h1 className="hero-section__name">Ismail Arif Berlianto</h1>
+        <p className="hero-section__role">Full Stack Web Developer</p>
         <p className="hero-section__tagline">
-          I build clean, fast, and user-friendly web applications — from the
+          I build clean, fast, and user-friendly web applications from the
           frontend all the way down to the backend.
         </p>
         <div className="hero-section__cta">

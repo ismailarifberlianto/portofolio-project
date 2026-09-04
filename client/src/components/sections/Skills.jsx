@@ -3,10 +3,10 @@ import Card from "../common/Card";
 import "./Skills.css";
 
 const SKILL_GROUPS = [
-  { title: "Frontend", items: ["React", "Vite", "JavaScript", "HTML/CSS"] },
-  { title: "Backend", items: ["Node.js", "Express.js", "JWT"] },
-  { title: "Database", items: ["MongoDB Atlas", "Mongoloquent"] },
-  { title: "Tools", items: ["Git", "ImageKit", "Nginx", "PM2"] },
+  { title: "Frontend", items: ["React", "Vite", "JavaScript", "HTML/CSS", "Typescript"] },
+  { title: "Backend", items: ["Node.js", "Express.js", "JWT", "Sequelize", "GraphQL"] },
+  { title: "Database", items: ["PostgreSQL", "MongoDB Atlas", "Mongoloquent"] },
+  { title: "Tools", items: ["Git", "ImageKit", "Nginx", "Vercel", "AWS EC2"] },
 ];
 
 function Skills() {
