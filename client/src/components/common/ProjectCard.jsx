@@ -1,11 +1,11 @@
+import { Link } from "react-router";
 import "./ProjectCard.css";
 
 function ProjectCard({ project }) {
   const { title, description, techStack = [], category, thumbnailUrl, _id } = project;
 
   return (
-    // Active on Milestone 6
-    <a href={`/project/${_id}`} className="project-card">
+    <Link to={`/project/${_id}`} className="project-card">
       <div className="project-card__thumb">
         {thumbnailUrl ? (
           <img src={thumbnailUrl} alt={title} loading="lazy" />
@@ -27,7 +27,7 @@ function ProjectCard({ project }) {
           </ul>
         )}
       </div>
-    </a>
+    </Link>
   );
 }
 

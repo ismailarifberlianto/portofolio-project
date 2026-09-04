@@ -1,0 +1,121 @@
+.project-detail {
+  padding: 48px 0 64px;
+  min-height: 60vh;
+}
+
+.project-detail__back {
+  display: inline-block;
+  margin-bottom: 24px;
+  color: var(--clay-text);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.project-detail__back:hover {
+  color: var(--clay-accent);
+}
+
+.project-detail__header {
+  margin-bottom: 24px;
+}
+
+.project-detail__badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  background: var(--clay-accent);
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.project-detail__badge--solo {
+  background: var(--clay-accent-alt);
+}
+
+.project-detail__header h1 {
+  margin: 0 0 8px;
+  color: var(--clay-text-h);
+  font-size: 36px;
+}
+
+.project-detail__role {
+  color: var(--clay-text);
+  margin: 0;
+}
+
+.project-detail__thumbnail {
+  width: 100%;
+  border-radius: var(--clay-radius-lg);
+  box-shadow: var(--clay-shadow-raised);
+  margin-bottom: 24px;
+}
+
+.project-detail__description {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--clay-text);
+  margin-bottom: 32px;
+}
+
+.project-detail__section {
+  margin-bottom: 32px;
+}
+
+.project-detail__section h2 {
+  font-size: 20px;
+  color: var(--clay-text-h);
+  margin: 0 0 12px;
+}
+
+.project-detail__tech {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+.project-detail__tech li {
+  background: var(--clay-bg-soft);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  color: var(--clay-text);
+}
+
+.project-detail__gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.project-detail__gallery img {
+  width: 100%;
+  border-radius: var(--clay-radius-sm);
+  box-shadow: var(--clay-shadow-raised);
+}
+
+.project-detail__links {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.project-detail__link {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 24px;
+  border-radius: var(--clay-radius-lg);
+  background: var(--clay-accent);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: var(--clay-shadow-raised);
+}
+
+.project-detail__link--secondary {
+  background: var(--clay-accent-alt);
+}

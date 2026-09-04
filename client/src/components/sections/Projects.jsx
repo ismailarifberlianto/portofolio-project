@@ -5,7 +5,7 @@ import { getProjects } from "../../services/projectService";
 import "./Projects.css";
 
 const FILTERS = [
-  { value: "", label: "Semua" },
+  { value: "", label: "All" },
   { value: "solo", label: "Solo" },
   { value: "team", label: "Team" },
 ];
@@ -38,7 +38,7 @@ function Projects() {
   return (
     <section id="projects" className="projects-section">
       <Container>
-        <h2 className="section-title">Projek</h2>
+        <h2 className="section-title">Projects</h2>
 
         <div className="projects-section__filters">
           {FILTERS.map((f) => (
@@ -53,14 +53,15 @@ function Projects() {
           ))}
         </div>
 
-        {status === "loading" && <p className="projects-section__hint">Memuat projek...</p>}
+        {status === "loading" && <p className="projects-section__hint">Loading projects...</p>}
         {status === "error" && (
           <p className="projects-section__hint">
-            Gagal memuat projek. Pastikan backend sudah menyala di {import.meta.env.VITE_API_BASE_URL || "http://localhost:3000/api"}.
+            Failed to load projects. Make sure the backend is running at{" "}
+            {import.meta.env.VITE_API_BASE_URL || "http://localhost:3000/api"}.
           </p>
         )}
         {status === "success" && projects.length === 0 && (
-          <p className="projects-section__hint">Belum ada projek untuk kategori ini.</p>
+          <p className="projects-section__hint">No projects in this category yet.</p>
         )}
 
         {status === "success" && projects.length > 0 && (

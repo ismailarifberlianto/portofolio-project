@@ -1,23 +1,24 @@
+import { Link } from "react-router";
 import "./Navbar.css";
 
 const NAV_LINKS = [
-  { href: "#about", label: "Tentang" },
-  { href: "#skills", label: "Skills" },
-  { href: "#projects", label: "Projek" },
+  { href: "/#about", label: "About" },
+  { href: "/#skills", label: "Skills" },
+  { href: "/#projects", label: "Projects" },
 ];
 
 function Navbar() {
   return (
     <header className="navbar">
       <div className="navbar__inner">
-        <a href="#top" className="navbar__brand">
+        <Link to="/" className="navbar__brand">
           astro<span>.dev</span>
-        </a>
+        </Link>
         <nav className="navbar__links">
           {NAV_LINKS.map((link) => (
-            <a key={link.href} href={link.href}>
+            <Link key={link.href} to={link.href}>
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
       </div>

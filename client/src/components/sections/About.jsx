@@ -6,13 +6,13 @@ function About() {
   return (
     <section id="about" className="about-section">
       <Container>
-        <h2 className="section-title">Tentang Saya</h2>
+        <h2 className="section-title">About Me</h2>
         <Card className="about-section__card">
           <p>
-            Saya seorang pengembang web yang fokus membangun aplikasi
-            full-stack — dari desain antarmuka sampai API dan database di
-            belakangnya. Terbiasa bekerja baik secara individu maupun dalam
-            tim, dan senang belajar hal baru di ekosistem JavaScript.
+            I'm a web developer focused on building full-stack applications —
+            from the user interface all the way to the API and database
+            behind it. Comfortable working both solo and in a team, and
+            always excited to learn new things in the JavaScript ecosystem.
           </p>
         </Card>
       </Container>
