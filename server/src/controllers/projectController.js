@@ -1,5 +1,5 @@
 const Project = require("../models/Project");
-const imagekit = require("../config/imagekit");
+const getImagekit = require("../config/imagekit");
 
 // GET /api/projects (public) — filter opsional category solo atau team
 async function getAll(req, res, next) {
@@ -80,13 +80,16 @@ async function update(req, res, next) {
       return res.status(404).json({ message: "Projek tidak ditemukan" });
     }
 
-    // Kalau thumbnail diganti dengan yang baru, hapus file lama di ImageKit
     if (
       req.body.thumbnailFileId &&
       existing.thumbnailFileId &&
       req.body.thumbnailFileId !== existing.thumbnailFileId
     ) {
-      await imagekit.deleteFile(existing.thumbnailFileId).catch(() => null);
+      try {
+        await getImagekit().deleteFile(existing.thumbnailFileId);
+      } catch (err) {
+        console.error("Gagal hapus thumbnail lama di ImageKit:", err.message);
+      }
     }
 
     const updated = await Project.where("_id", req.params.id).update(req.body);
@@ -106,14 +109,17 @@ async function remove(req, res, next) {
       return res.status(404).json({ message: "Projek tidak ditemukan" });
     }
 
-    // Hapus semua file terkait (thumbnail + galeri) di ImageKit biar tidak jadi sampah
     const fileIds = [
       existing.thumbnailFileId,
       ...((existing.images || []).map((img) => img.fileId)),
     ].filter(Boolean);
 
     if (fileIds.length) {
-      await imagekit.bulkDeleteFiles(fileIds).catch(() => null);
+      try {
+        await getImagekit().bulkDeleteFiles(fileIds);
+      } catch (err) {
+        console.error("Gagal hapus file terkait di ImageKit:", err.message);
+      }
     }
 
     await Project.destroy(req.params.id);
