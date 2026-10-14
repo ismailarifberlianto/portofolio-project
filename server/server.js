@@ -10,21 +10,27 @@ const errorHandler = require("./src/middlewares/errorHandler");
 const uploadRoutes = require("./src/routes/uploadRoutes");
 
 const PORT = process.env.PORT || 3000;
-const CLIENT_ORIGIN = process.env.CLIENT_ORIGIN || "http://localhost:5173";
+const allowedOrigins = process.env.CLIENT_ORIGIN
+  ? process.env.CLIENT_ORIGIN.split(",").map((url) => url.trim())
+  : ["http://localhost:5173", "https://portofolio.mailab.my.id"];
 
 const app = express();
 app.set('trust proxy', 1);
 
 // Basic Middleware
 app.use(cors({
-  origin: CLIENT_ORIGIN,
-  credentials: true
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Di-blokir oleh CORS Policy"));
+    }
+  },
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
 }));
 app.use(express.json());
-
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Server jalan di http://localhost:${PORT}`);
-});
 
 // Rate limiter
 app.use(
@@ -40,6 +46,7 @@ app.get("/api/health", (req, res) => {
 });
 
 app.use("/api/projects", projectRoutes);
+app.use("/projects", projectRoutes);
 app.use("/api/admin/projects", projectRoutes.adminRouter);
 app.use("/api/admin", authRoutes);
 app.use("/api/contact", messageRoutes);
@@ -49,8 +56,8 @@ app.use(errorHandler);
 
 async function startServer() {
   await connectDB(); // Connection verification
-  app.listen(PORT, () => {
-    console.log(`Server jalan di http://localhost:${PORT}`);
+  app.listen(PORT, "0.0.0.0", () => {
+    console.log(`Server jalan di port ${PORT}`);
   });
 }
 
