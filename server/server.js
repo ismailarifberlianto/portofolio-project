@@ -23,7 +23,7 @@ app.use(cors({
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
-      callback(new Error("Di-blokir oleh CORS Policy"));
+      callback(new Error("Blocked by CORS Policy"));
     }
   },
   credentials: true,
@@ -54,11 +54,13 @@ app.use("/api/admin/upload", uploadRoutes);
 
 app.use(errorHandler);
 
-async function startServer() {
-  await connectDB(); // Connection verification
-  app.listen(PORT, "0.0.0.0", () => {
-    console.log(`Server jalan di port ${PORT}`);
-  });
-}
+app.listen(PORT, "0.0.0.0", async () => {
+  console.log(`Server running on ${PORT}`);
 
-startServer();
+  try {
+    await connectDB();
+    console.log("Database connected");
+  } catch (error) {
+    console.error("Failed connecting to Database:", error.message);
+  }
+});
