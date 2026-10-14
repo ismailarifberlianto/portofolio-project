@@ -13,9 +13,13 @@ const PORT = process.env.PORT || 3000;
 const CLIENT_ORIGIN = process.env.CLIENT_ORIGIN || "http://localhost:5173";
 
 const app = express();
+app.set('trust proxy', 1);
 
 // Basic Middleware
-app.use(cors({ origin: CLIENT_ORIGIN })); 
+app.use(cors({
+  origin: CLIENT_ORIGIN,
+  credentials: true
+}));
 app.use(express.json());
 
 // Rate limiter
@@ -37,7 +41,7 @@ app.use("/api/admin", authRoutes);
 app.use("/api/contact", messageRoutes);
 app.use("/api/admin/upload", uploadRoutes);
 
-app.use(errorHandler); 
+app.use(errorHandler);
 
 async function startServer() {
   await connectDB(); // Connection verification
