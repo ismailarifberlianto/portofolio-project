@@ -22,6 +22,10 @@ app.use(cors({
 }));
 app.use(express.json());
 
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server jalan di http://localhost:${PORT}`);
+});
+
 // Rate limiter
 app.use(
   rateLimit({
